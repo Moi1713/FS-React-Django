@@ -5,7 +5,9 @@ import { getLeads, deleteLead } from '../../actions/leads';
 
 export class Leads extends Component {
 	static propTypes = {
-		leads: PropTypes.array.isRequired
+		leads: PropTypes.array.isRequired,
+		getLeads: PropTypes.func.isRequired,
+		deleteLead: PropTypes.func.isRequired
 	}
 
 	componentDidMount() {
@@ -16,14 +18,14 @@ export class Leads extends Component {
 		return (
 			<Fragment>
 				<h2>Lead List</h2>
-				<table className="table table-striped">
+				<table className="table table-bordered table-hover">
 					<thead>
 						<tr>
 							<th>ID</th>
 							<th>Name</th>
 							<th>Email</th>
 							<th>Message</th>
-							<th />
+							<th>Actions</th>
 						</tr>
 					</thead>
 					<tbody>
