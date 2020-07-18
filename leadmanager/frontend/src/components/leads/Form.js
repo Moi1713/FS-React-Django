@@ -21,7 +21,22 @@ export class Form extends Component {
 		const { name, email, message } = this.state;
 		const lead = { name, email, message };
 		this.props.addLead(lead);
+		this.setState({
+			name: "",
+			email: "",
+			message: ""
+		});
 	};
+
+	onReset = e => {
+		e.preventDefault;
+		const { name, email, message } = this.state;
+		this.setState({
+			name: "",
+			email: "",
+			message: ""
+		});
+	}
 
 	render () {
 		const { name, email, message } = this.state;
@@ -45,7 +60,8 @@ export class Form extends Component {
 							onChange={this.onChange} value={message} />
 					</div>
 					<div className="form-group">
-						<button type="submit" className="btn btn-primary"> Submit </button>
+						<button type="submit" className="btn btn-primary mr-3"> Submit </button>
+						<button type="reset" className="btn btn-danger" onClick={this.onReset}> Reset </button>
 					</div>
 				</form>
 			</div>
